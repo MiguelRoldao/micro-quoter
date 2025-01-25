@@ -6,7 +6,7 @@ local config = import("micro/config")
 
 function init()
 	config.RegisterCommonOption("quoter", "enable", true)
-	config.RegisterCommonOption("quoter", "mode", "")
+	config.RegisterCommonOption("quoter", "mode", "default")
 	config.AddRuntimeFile("quoter", config.RTHelp, "help/quoter.md")
 end
 
@@ -19,7 +19,7 @@ function preRune(bp, r)
 	end
 	
 	-- try using user settings, or use "default"
-	local quotePairs = modes[bp.Buf.Settings["quoter.mode"]] or modes["default"]
+	local quotePairs = modes[config.GetGlobalOption("quoter.mode")]
 	
 	for i = 1, #quotePairs do
 		if r == quotePairs[i][1] or r == quotePairs[i][2] then
