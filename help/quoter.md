@@ -39,7 +39,7 @@ current file can also be changed in the command-bar with:
 Check the file `micro-quoter/modes.lua` in the plugin folder to see the
 differences between the different modes. 
 
-#### Extending Quoting Modes
+### Extending Quoting Modes
 
 New modes can be added by extending the `modes` table. If you have sophisticated
 quoting requisites that fall outside the implemented modes, feel free to extend
